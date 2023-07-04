@@ -14,7 +14,7 @@ export default {
         titleRoundBg: 'linear-gradient(135deg, rgba(120,204,109,.15) 0%, rgba(120,204,109,1%) 100%)'
       },
       animation: {
-        'spin-slow ': 'spin 15s linear infinite',
+        'spin-slow': 'spin 15s linear infinite',
         'reverse-spin': 'reverse-spin 15s linear infinite'
       },
       keyframes: {
