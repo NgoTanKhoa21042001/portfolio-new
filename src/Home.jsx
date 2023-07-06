@@ -9,6 +9,8 @@ import { SiGooglechat } from 'react-icons/si'
 import { BsTelephonePlusFill } from 'react-icons/bs'
 import About from './components/about/About'
 import Resume from './components/resume/Resume'
+import Projects from './components/projects/Projects'
+import Blog from './components/blog/Blog'
 const Home = () => {
   const [about, setAbout] = useState(true)
   const [resume, setResume] = useState(false)
@@ -31,34 +33,56 @@ const Home = () => {
         {/* Other icon */}
         <div className='w-full h-96 bg-bodyColor rounded-3xl py-6 flex flex-col items-center justify-between'>
           <span
-            onclick={() =>
-              setAbout(true) &
-              setResume(false) &
-              setProjects(false) &
-              setProjects(false) &
-              setBlog(false) &
-              setContact(false)
-            }
-            className='w-full h-6 text-textColor text-xl flex items-center justify-center hover:text-designColor duration-300 cursor-pointer relative group'
+            onClick={() => setAbout(true) & setResume(false) & setProjects(false) & setBlog(false) & setContact(false)}
+            className={`${
+              about
+                ? 'text-designColor'
+                : 'w-full h-6 text-textColor text-xl flex items-center justify-center hover:text-designColor duration-300 cursor-pointer relative group'
+            } w-full h-6 text-xl flex items-center justify-center hover:text-designColor duration-300 cursor-pointer relative group`}
+            // className="w-full h-6 text-textColor text-xl flex items-center justify-center hover:text-designColor duration-300 cursor-pointer relative group"
           >
             <FaUser />{' '}
             <span className='absolute text-black font-medium text-xs uppercase bg-designColor px-4 py-[1px] rounded-xl left-0 translate-x-8 group-hover:translate-x-12 transition-all duration-300 z-20 opacity-0 group-hover:opacity-100'>
               About
             </span>
           </span>
-          <span className='w-full h-6 text-textColor text-xl flex items-center justify-center hover:text-designColor duration-300 cursor-pointer relative group'>
+          <span
+            onClick={() => setAbout(false) & setResume(true) & setProjects(false) & setBlog(false) & setContact(false)}
+            className={`${
+              resume
+                ? 'text-designColor'
+                : 'w-full h-6 text-textColor text-xl flex items-center justify-center hover:text-designColor duration-300 cursor-pointer relative group'
+            } w-full h-6 text-xl flex items-center justify-center hover:text-designColor duration-300 cursor-pointer relative group`}
+            // className="w-full h-6 text-textColor text-xl flex items-center justify-center hover:text-designColor duration-300 cursor-pointer relative group"
+          >
             <IoIosPaper />{' '}
             <span className='absolute text-black font-medium text-xs uppercase bg-designColor px-4 py-[1px] rounded-xl left-0 translate-x-8 group-hover:translate-x-12 transition-all duration-300 z-20 opacity-0 group-hover:opacity-100'>
               Resume
             </span>
           </span>
-          <span className='w-full h-6 text-textColor text-xl flex items-center justify-center hover:text-designColor duration-300 cursor-pointer relative group'>
+          <span
+            onClick={() => setAbout(false) & setResume(false) & setProjects(true) & setBlog(false) & setContact(false)}
+            className={`${
+              projects
+                ? 'text-designColor'
+                : 'w-full h-6 text-textColor text-xl flex items-center justify-center hover:text-designColor duration-300 cursor-pointer relative group'
+            } w-full h-6 text-xl flex items-center justify-center hover:text-designColor duration-300 cursor-pointer relative group`}
+            // className="w-full h-6 text-textColor text-xl flex items-center justify-center hover:text-designColor duration-300 cursor-pointer relative group"
+          >
             <MdWork />{' '}
             <span className='absolute text-black font-medium text-xs uppercase bg-designColor px-4 py-[1px] rounded-xl left-0 translate-x-8 group-hover:translate-x-12 transition-all duration-300 z-20 opacity-0 group-hover:opacity-100'>
               Projects
             </span>
           </span>
-          <span className='w-full h-6 text-textColor text-xl flex items-center justify-center hover:text-designColor duration-300 cursor-pointer relative group'>
+          <span
+            onClick={() => setAbout(false) & setResume(false) & setProjects(false) & setBlog(true) & setContact(false)}
+            className={`${
+              blog
+                ? 'text-designColor'
+                : 'w-full h-6 text-textColor text-xl flex items-center justify-center hover:text-designColor duration-300 cursor-pointer relative group'
+            } w-full h-6 text-xl flex items-center justify-center hover:text-designColor duration-300 cursor-pointer relative group`}
+            // className="w-full h-6 text-textColor text-xl flex items-center justify-center hover:text-designColor duration-300 cursor-pointer relative group"
+          >
             <SiGooglechat />{' '}
             <span className='absolute text-black font-medium text-xs uppercase bg-designColor px-4 py-[1px] rounded-xl left-0 translate-x-8 group-hover:translate-x-12 transition-all duration-300 z-20 opacity-0 group-hover:opacity-100'>
               Blog
@@ -84,8 +108,10 @@ const Home = () => {
         {/* Right part start */}
         <div className='w-8/12 h-[95%] bg-bodyColor '>
           <div className='w-full h-[96%] overflow-y-scroll'>
-            {/* <About /> */}
-            <Resume />
+            {about && <About />}
+            {resume && <Resume />}
+            {projects && <Projects />}
+            {blog && <Blog />}
           </div>
         </div>
       </div>
