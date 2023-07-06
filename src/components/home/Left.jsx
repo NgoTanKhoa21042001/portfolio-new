@@ -16,7 +16,7 @@ const Left = () => {
     delaySpeed: 4000
   })
   return (
-    <div className='w-5/12 h-full bg-bodyColor rounded-2xl'>
+    <div className='w-5/12 h-full bg-bodyColor rounded-2xl shadow-testShwdow'>
       <div className='w-full h-3/5'>
         <img className='w-full h-full object-cover rounded-2xl' src={bannerImg} alt='bannerImage' loading='priority' />
       </div>
