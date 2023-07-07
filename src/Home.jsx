@@ -11,6 +11,7 @@ import About from './components/about/About'
 import Resume from './components/resume/Resume'
 import Projects from './components/projects/Projects'
 import Blog from './components/blog/Blog'
+import Contact from './components/contact/Contact'
 const Home = () => {
   const [about, setAbout] = useState(true)
   const [resume, setResume] = useState(false)
@@ -88,7 +89,15 @@ const Home = () => {
               Blog
             </span>
           </span>
-          <span className='w-full h-6 text-textColor text-xl flex items-center justify-center hover:text-designColor duration-300 cursor-pointer relative group'>
+          <span
+            onClick={() => setAbout(false) & setResume(false) & setProjects(false) & setBlog(false) & setContact(true)}
+            className={`${
+              contact
+                ? 'text-designColor'
+                : 'w-full h-6 text-textColor text-xl flex items-center justify-center hover:text-designColor duration-300 cursor-pointer relative group'
+            } w-full h-6 text-xl flex items-center justify-center hover:text-designColor duration-300 cursor-pointer relative group`}
+            // className="w-full h-6 text-textColor text-xl flex items-center justify-center hover:text-designColor duration-300 cursor-pointer relative group"
+          >
             <FaEnvelope />{' '}
             <span className='absolute text-black font-medium text-xs uppercase bg-designColor px-4 py-[1px] rounded-xl left-0 translate-x-8 group-hover:translate-x-12 transition-all duration-300 z-20 opacity-0 group-hover:opacity-100'>
               Contact
@@ -112,6 +121,7 @@ const Home = () => {
             {resume && <Resume />}
             {projects && <Projects />}
             {blog && <Blog />}
+            {contact && <Contact />}
           </div>
         </div>
       </div>
