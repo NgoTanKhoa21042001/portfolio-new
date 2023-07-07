@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unknown-property */
 /* eslint-disable no-unused-vars */
 import React, { useRef, useState } from 'react'
-import Left from './components/Home/Left'
+import Left from './components/home/Left'
 import { FaUser, FaEnvelope } from 'react-icons/fa'
 import { IoIosPaper } from 'react-icons/io'
 import { motion } from 'framer-motion'
