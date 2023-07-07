@@ -15,6 +15,7 @@ import Projects from './components/projects/Projects'
 import Blog from './components/blog/Blog'
 import Contact from './components/contact/Contact'
 import SideNav from './components/home/sidenav/SideNav'
+import { useEffect } from 'react'
 const Home = () => {
   const [about, setAbout] = useState(true)
   const [resume, setResume] = useState(false)
@@ -22,6 +23,14 @@ const Home = () => {
   const [blog, setBlog] = useState(false)
   const [contact, setContact] = useState(false)
   const [sidenav, setSidenav] = useState(false)
+
+  useEffect(() => {
+    document.body.addEventListener('click', (e) => {
+      if (e.target.contains(ref.current)) {
+        setSidenav(false)
+      }
+    })
+  }, [])
   const ref = useRef()
   return (
     <div className='w-[85%] h-[85%] bg-transparent text-white z-50 flex items-start justify-between'>
@@ -35,12 +44,10 @@ const Home = () => {
           </div>
           {/* ============= Sidenav Start here ============= */}
           {sidenav && (
-            <div
-              onClick={() => setSidenav(false)}
-              className='w-full h-screen fixed top-0 left-0 bg-black bg-opacity-50 z-50'
-            >
+            <div className='w-full h-screen fixed top-0 left-0 bg-black bg-opacity-50 z-50'>
               <div className='w-96 h-full relative'>
                 <motion.div
+                  ref={ref}
                   initial={{ x: -500, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ duration: 0.5 }}

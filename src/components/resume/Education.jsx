@@ -32,10 +32,10 @@ const Education = () => {
         />
       </div>
       {/*  này là thanh dọc */}
-      <div className='w-full h-full flex justify-center items-center'>
+      <div className='w-full h-full hidden lgl:flex justify-center items-center'>
         <span className='w-[1px] h-full bg-zinc-800 inline-flex'></span>
       </div>
-      <div className='col-span-4'>
+      <div className='col-span-8 md:col-span-4 overflow-x-hidden'>
         <ResumeTitle title='Education' icon={<GiGraduateCap />} />
         <ResumeCard
           badge='2012 - 2014'

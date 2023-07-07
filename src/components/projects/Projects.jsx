@@ -16,7 +16,7 @@ const Projects = () => {
   return (
     <>
       <Title title='Recent' subTitle='Projects' />
-      <div className='w-full grid grid-cols-2 gap-10'>
+      <div className='w-full grid grid-cols-1 md:grid-cols-2 gap-6 lgl:gap-10'>
         <div className='px-6'>
           <ProjectCard title='Blog Website' category='Website' image={workImgThree} />
           <ProjectCard title='Business Card Design' category='Design' image={workImgOne} />

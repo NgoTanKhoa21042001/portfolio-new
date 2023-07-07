@@ -8,7 +8,7 @@ import FunCard from './FunCard'
 
 const FanFact = () => {
   return (
-    <div className='px-0 grid grid-cols-4 pb-10'>
+    <div className='px-0 grid grid-cols-2 md:grid-cols-4 pb-10'>
       <FunCard icon={<BsTrophyFill />} des='10 Awards Won' />
       <FunCard icon={<SiAntdesign />} des='20 Finished Projects' />
       <FunCard icon={<BiCodeAlt />} des='100 hours of coding' />
