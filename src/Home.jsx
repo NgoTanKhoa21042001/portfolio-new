@@ -4,14 +4,17 @@ import React, { useRef, useState } from 'react'
 import Left from './components/Home/Left'
 import { FaUser, FaEnvelope } from 'react-icons/fa'
 import { IoIosPaper } from 'react-icons/io'
+import { motion } from 'framer-motion'
 import { MdWork } from 'react-icons/md'
 import { SiGooglechat } from 'react-icons/si'
+import { MdOutlineClose } from 'react-icons/md'
 import { BsTelephonePlusFill } from 'react-icons/bs'
 import About from './components/about/About'
 import Resume from './components/resume/Resume'
 import Projects from './components/projects/Projects'
 import Blog from './components/blog/Blog'
 import Contact from './components/contact/Contact'
+import SideNav from './components/home/sidenav/SideNav'
 const Home = () => {
   const [about, setAbout] = useState(true)
   const [resume, setResume] = useState(false)
@@ -25,14 +28,38 @@ const Home = () => {
       <div className='w-16 h-96 bg-transparent flex flex-col gap-4'>
         <div className='w-full h-20 bg-bodyColor rounded-3xl flex justify-center items-center cursor-pointer group'>
           {/* Home icons */}
-          <div className='flex flex-col items-center gap-1.5'>
+          <div onClick={() => setSidenav(true)} className='flex flex-col items-center gap-1.5 overflow-hidden'>
             <span className='w-8 h-[2px] bg-textColor inline-block -translate-x-2 group-hover:translate-x-0 transition-transform duration-300 group-hover:bg-designColor'></span>
             <span className='w-8 h-[2px] bg-textColor inline-block group-hover:bg-designColor duration-300'></span>
             <span className='w-8 h-[2px] bg-textColor inline-block -translate-x-3.5 group-hover:translate-x-0 transition-transform duration-300 group-hover:bg-designColor'></span>
           </div>
+          {/* ============= Sidenav Start here ============= */}
+          {sidenav && (
+            <div
+              onClick={() => setSidenav(false)}
+              className='w-full h-screen fixed top-0 left-0 bg-black bg-opacity-50 z-50'
+            >
+              <div className='w-96 h-full relative'>
+                <motion.div
+                  initial={{ x: -500, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ duration: 0.5 }}
+                  className='w-full h-full bg-bodyColor overflow-y-scroll scrollbar-thin scrollbar-thumb-[#646464]'
+                >
+                  <SideNav />
+                  <span
+                    onClick={() => setSidenav(false)}
+                    className='absolute top-0 -right-16 w-12 h-12 bg-bodyColor text-2xl text-textColor hover:text-designColor duration-300 cursor-pointer flex items-center justify-center z-50'
+                  >
+                    <MdOutlineClose />
+                  </span>
+                </motion.div>
+              </div>
+            </div>
+          )}
         </div>
         {/* Other icon */}
-        <div className='w-full h-96 bg-bodyColor rounded-3xl py-6 flex flex-col items-center justify-between'>
+        <div className='w-full h-80 bg-bodyColor rounded-3xl py-6 flex flex-col items-center justify-between'>
           <span
             onClick={() => setAbout(true) & setResume(false) & setProjects(false) & setBlog(false) & setContact(false)}
             className={`${
